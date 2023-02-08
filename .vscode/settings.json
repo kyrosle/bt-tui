@@ -1,6 +1,9 @@
 {
     "cSpell.words": [
         "Crossterm",
-        "dioxus"
+        "dioxus",
+        "flexi",
+        "metainfo",
+        "structopt"
     ]
 }

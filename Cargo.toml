@@ -6,6 +6,13 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-dioxus = { git = "https://github.com/DioxusLabs/dioxus" }
-dioxus-tui = { git = "https://github.com/DioxusLabs/dioxus" }
+structopt = "0.3.26"
 tokio = "1.25.0"
+tui = "0.19.0"
+
+# bt-rust = {git = "https://github.com/kyrosle/bt-rust.git"}
+bt-rust = { path = "D:\\bt-rust" }
+
+crossterm = "0.26.0"
+flexi_logger = "0.25.1"
+hex = "0.4.3"
