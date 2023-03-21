@@ -1,3 +1,4 @@
+use core::panic;
 use std::{collections::HashMap, path::PathBuf, time::Duration};
 
 use bt_rust::{
@@ -6,6 +7,7 @@ use bt_rust::{
     storage_info::{FileInfo, StorageInfo},
     torrent::stats::{Channel, Peers, PieceStats, Thruput, TorrentStats},
 };
+use tui::widgets::canvas::Painter;
 
 use crate::{Args, Result};
 

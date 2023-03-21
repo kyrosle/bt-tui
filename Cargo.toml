@@ -7,11 +7,12 @@ edition = "2021"
 
 [dependencies]
 structopt = "0.3.26"
-tokio = "1.25.0"
+tokio = { version = "1.26.0", features = ["full"] }
 tui = "0.19.0"
 
-# bt-rust = {git = "https://github.com/kyrosle/bt-rust.git"}
-bt-rust = { path = "D:\\bt-rust" }
+# stable version
+bt-rust = { git = "https://github.com/kyrosle/bt-rust.git", commit = "db1b6de" }
+# bt-rust = { path = "D:\\Development\\Projects\\bt-rust" }
 
 crossterm = "0.26.0"
 flexi_logger = "0.25.1"

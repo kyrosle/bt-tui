@@ -1,5 +1,6 @@
 use app::App;
 use bt_rust::prelude::*;
+
 use crossterm::{
     event::EnableMouseCapture,
     execute,
@@ -70,11 +71,11 @@ pub async fn start_up() -> Result<()> {
     let quit_after_complete = args.quit_after_complete;
 
     // set up TUI backend
-    // enable_raw_mode()?;
-    // let mut stdout = std::io::stdout();
-    // execute!(stdout, EnterAlternateScreen, EnableMouseCapture)?;
-    // let backend = CrosstermBackend::new(stdout);
-    // let mut terminal = Terminal::new(backend)?;
+    enable_raw_mode()?;
+    let mut stdout = std::io::stdout();
+    execute!(stdout, EnterAlternateScreen, EnableMouseCapture)?;
+    let backend = CrosstermBackend::new(stdout);
+    let mut terminal = Terminal::new(backend)?;
 
     // set up app state and input events
     let mut app = App::new(args.download_dir.clone())?;
@@ -86,7 +87,7 @@ pub async fn start_up() -> Result<()> {
     app.create_torrent(args)?;
 
     // draw initial state
-    // terminal.draw(|f| ui::draw(f, &mut app))?;
+    terminal.draw(|f| ui::draw(f, &mut app))?;
 
     // wait for stdin input and alerts form the engine.
     let mut run = true;
@@ -114,7 +115,7 @@ pub async fn start_up() -> Result<()> {
         }
 
         // draw ui with update state
-        // terminal.draw(|f| ui::draw(f, &mut app))?;
+        terminal.draw(|f| ui::draw(f, &mut app))?;
 
         // we want to draw once more before breaking out of the loop as
         // otherwise the completion of the ui is not rendered, which will result
